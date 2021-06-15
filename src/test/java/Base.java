@@ -10,9 +10,9 @@ public class Base {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Fess\\IdeaProjects\\chromedriver.exe");
         driver = new ChromeDriver();
     }
-    @AfterTest
-    public void exit (){
-        driver.quit();
-    }
+//    @AfterTest
+//    public void exit (){
+//        driver.quit();
+//    }
 }
 
