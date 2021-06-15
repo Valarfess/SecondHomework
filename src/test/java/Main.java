@@ -23,7 +23,9 @@ public class Main extends Base {
         driver.findElementByClassName("inventory_item_name");
         driver.findElementByTagName("button");
         driver.findElementByLinkText("LinkedIn");
-        driver.findElementByXPath("")
+        driver.findElement(By.xpath("//button[contains(@name,'products')]"));
+        driver.findElement(By.xpath("//button[contains(text(),'cart')]"));
+        driver.findElement(By.xpath("//button[contains(text(),'cart')]"));
 
     }
 }
