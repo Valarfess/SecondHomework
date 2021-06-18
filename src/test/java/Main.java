@@ -12,12 +12,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Main extends Base {
 
+    private static final String USERNAME = "standard_user";
+    private static final String PASSWORD = "secret_sauce";
+
     @Test
     public void TestSauceDemo() {
         driver.get("https://www.saucedemo.com/");
-        driver.findElementByXPath("//*[@id=\"user-name\"]").sendKeys("standard_user");
-        driver.findElementByXPath("//*[@id=\"password\"]").sendKeys("secret_sauce");
-        driver.findElementByXPath("//*[@id=\"login-button\"]").click();
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = loginPage.LoginSuccess(USERNAME,PASSWORD);
         String nameItemInShop = driver.findElementByXPath("//*[@id=\"item_1_title_link\"]/div").getText();
         String costItemInShop = driver.findElementByXPath("//*[@id=\"inventory_container\"]/div/div[3]/div[2]/div[2]/div").getText();
         driver.findElementByXPath("//*[@id=\"add-to-cart-sauce-labs-bolt-t-shirt\"]").click();
