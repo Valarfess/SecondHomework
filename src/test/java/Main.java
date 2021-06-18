@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class Main extends Base {
 
     @Test
-    public void AddRemoveElement() {
+    public void TestSauceDemo() {
         driver.get("https://www.saucedemo.com/");
         driver.findElementByXPath("//*[@id=\"user-name\"]").sendKeys("standard_user");
         driver.findElementByXPath("//*[@id=\"password\"]").sendKeys("secret_sauce");
