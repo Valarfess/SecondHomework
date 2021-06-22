@@ -13,17 +13,18 @@ import java.util.concurrent.TimeUnit;
 public class Main extends Base {
 
     @Test
-    public void AddRemoveElement() {
+    public void TestSauceDemo() {
         driver.get("https://www.saucedemo.com/");
         driver.findElementByXPath("//*[@id=\"user-name\"]").sendKeys("standard_user");
         driver.findElementByXPath("//*[@id=\"password\"]").sendKeys("secret_sauce");
         driver.findElementByXPath("//*[@id=\"login-button\"]").click();
-        driver.findElementById("react-burger-menu-btn");
-        driver.findElementByName("add-to-cart-sauce-labs-backpack");
-        driver.findElementByClassName("inventory_item_name");
-        driver.findElementByTagName("button");
-        driver.findElementByLinkText("LinkedIn");
-        driver.findElementByXPath("")
-
+        String nameItemInShop = driver.findElementByXPath("//*[@id=\"item_1_title_link\"]/div").getText();
+        String costItemInShop = driver.findElementByXPath("//*[@id=\"inventory_container\"]/div/div[3]/div[2]/div[2]/div").getText();
+        driver.findElementByXPath("//*[@id=\"add-to-cart-sauce-labs-bolt-t-shirt\"]").click();
+        driver.findElementByXPath("//*[@id=\"shopping_cart_container\"]/a").click();
+        String nameItemInCart = driver.findElementByXPath("//*[@id=\"item_1_title_link\"]/div").getText();
+        String costItemInCart = driver.findElementByXPath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/div").getText();
+        Assert.assertEquals(nameItemInShop, nameItemInCart);
+        Assert.assertEquals(costItemInShop, costItemInCart);
     }
 }
